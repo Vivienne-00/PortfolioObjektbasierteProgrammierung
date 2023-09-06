@@ -6,41 +6,87 @@ using System.Threading.Tasks;
 
 namespace geometrischeFiguren
 {
-    internal class Formenbehaelter
+    public class Formenbehaelter
     {
         public List<Rechteck> rechtecke = new List<Rechteck>();
         public List<Dreieck> dreiecke = new List<Dreieck>();
         public List<Kreis> kreise = new List<Kreis>();
 
-        private Rechteck rechteck1;
-        private Rechteck rechteck2;
-        private Kreis kreis1;
-
         public Formenbehaelter(Rechteck Rechteck1, Rechteck Rechteck2, Kreis Kreis1)
         {
-            this.rechteck1 = Rechteck1;
-            this.rechteck2 = Rechteck2;
-            this.kreis1 = Kreis1;
+            rechtecke.Add(Rechteck1);
+            rechtecke.Add(Rechteck2);
+            kreise.Add(Kreis1);          
         }
 
-        //Folgende Funktionen müssen noch bearbeitet werden:
         public void DreieckHinzufuegen(Dreieck dreieck)
         {
-            dreiecke.Add(dreieck);
+            if (dreiecke.Count < 4)
+            {
+                dreiecke.Add(dreieck);
+            } 
+            else
+            {
+                Console.WriteLine("Es wurde die Maximale Menge an Dreiecken erstellt, bitte löschen Sie einen.");
+            }
         }
         public void KreisHinzufuegen(Kreis kreis)
         {
-            kreise.Add(kreis);
+            if (kreise.Count < 3)
+            {
+                kreise.Add(kreis);
+            } 
+            else
+            {
+                Console.WriteLine("Es wurde die Maximale Menge an Kreisen erstellt, bitte löschen Sie einen.");
+            }
         }
 
-        public void DreieckLetztesElementEntfernen(Dreieck dreieck)
+        public void DreieckErstesElementEntfernen()
         {
-            dreiecke.RemoveAt(dreiecke.Count - 1);
+            if (dreiecke.Count > 0)
+            {
+                dreiecke.RemoveAt(0);
+            } 
+            else
+            {
+                Console.WriteLine("Es können keine Dreiecke mehr gelöscht werden.");
+            }
         }
 
-        public void KreisLetztesElementEntfernen(Kreis kreis)
+        public void KreisErstesElementEntfernen()
         {
-            kreise.RemoveAt(kreise.Count - 1);
+            if (kreise.Count > 1)
+            {
+                kreise.RemoveAt(0);
+            } 
+            else
+            {
+                Console.WriteLine("Es können keine Kreise mehr gelöscht werden.");
+            }
+            
+        }
+
+        public void FormenbehaelterAusgeben()
+        {
+            Console.WriteLine("Der Formenbehälter enthält:");
+            Console.WriteLine("");
+
+            Console.WriteLine($"{kreise.Count} Kreise");
+            Console.WriteLine("");
+            kreise.ForEach(x =>  x.KreisAusgeben()) ;
+            Console.WriteLine("");
+
+            Console.WriteLine($"{rechtecke.Count} Rechtecke");
+            Console.WriteLine("");
+            rechtecke.ForEach(x => x.RechteckAusgeben());
+            Console.WriteLine("");
+
+            Console.WriteLine($"{dreiecke.Count} Dreiecke");
+            Console.WriteLine("");
+            dreiecke.ForEach(x => x.DreieckAusgeben());
+            Console.WriteLine("");
+
         }
     }
 }

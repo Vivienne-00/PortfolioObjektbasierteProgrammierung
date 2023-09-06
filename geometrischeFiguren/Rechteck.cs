@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace geometrischeFiguren
 {
-    internal class Rechteck
+    public class Rechteck
     {
         private Linie linie1;
         private Linie linie2;
         private Linie linie3;
         private Linie linie4;
-        public Rechteck(Linie Linie1, Linie Linie2)
+        public Rechteck(Linie linie1, Linie linie2)
         {
-            this.linie1 = Linie1;
-            this.linie2 = Linie2;
-            this.linie3 = Linie1;
-            this.linie4 = Linie2;
+            this.linie1 = linie1;
+            this.linie2 = linie2;
+            this.linie3 = linie1;
+            this.linie4 = linie2;
         }
         public double BerechneUmfang()
         {
@@ -26,6 +26,17 @@ namespace geometrischeFiguren
         public double BerechneFlaeche()
         {
             return linie1.Laenge * linie2.Laenge;
+        }
+
+        public void RechteckAusgeben()
+        {
+            Console.WriteLine("Dies ist ein Rechteck.");
+            Console.WriteLine("Es besteht aus 4 Linien:");
+            Console.WriteLine($"Linie1 {linie1.Laenge} cm");
+            Console.WriteLine($"Linie2 {linie2.Laenge} cm");
+            Console.WriteLine($"Linie3 {linie3.Laenge} cm");
+            Console.WriteLine($"Linie4 {linie4.Laenge} cm");
+            Console.WriteLine("");
         }
     }
 }

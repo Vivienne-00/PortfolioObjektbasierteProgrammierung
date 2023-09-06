@@ -6,24 +6,32 @@ using System.Threading.Tasks;
 
 namespace geometrischeFiguren
 {
-    internal class Kreis
+    public class Kreis
     {
-        private Linie durchmesser;
-        public Kreis(Linie Durchmesser)
+        private Linie umfang;
+        public Kreis(Linie umfang)
         {
-          this.durchmesser = Durchmesser;
+            this.umfang = umfang;
         }
 
         public double BerechneUmfang()
         {
-            double PI = Math.PI;
-            return durchmesser.Laenge * PI;
+            return umfang.Laenge;
         }
 
         public double BerechneFlaeche()
         {
             double PI = Math.PI;
-            return PI * (durchmesser.Laenge * durchmesser.Laenge / 4);
+            double durchmesser = umfang.Laenge / PI;
+            return PI * (durchmesser * durchmesser / 4);
+        }
+
+        public void KreisAusgeben()
+        {
+            Console.WriteLine("Dies ist ein Kreis.");
+            Console.WriteLine("Es besteht aus 1 Linie, dies ist der Umfang:");
+            Console.WriteLine($"Umfang {umfang.Laenge} cm");
+            Console.WriteLine("");
         }
 
     }

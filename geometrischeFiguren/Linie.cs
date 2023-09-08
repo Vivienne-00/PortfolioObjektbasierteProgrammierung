@@ -14,14 +14,7 @@ namespace geometrischeFiguren
 
         public Linie(double laenge)
         {
-            if (laenge > 0)
-            {
-                this.laenge = laenge;
-            }
-            else
-            {
-                Console.WriteLine("Eingabe ist ungültig, bitte geben Sie die Länge nochmals neu ein.");
-            }
+            this.laenge = laenge;
         }
     }
 }

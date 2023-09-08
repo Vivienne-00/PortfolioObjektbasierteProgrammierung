@@ -14,6 +14,10 @@ namespace geometrischeFiguren
             this.umfang = umfang;
         }
 
+        /// <summary>
+        /// Das ist eine Methode um den Umfang eines Kreises zu berechnen. 
+        /// Da die Linie des Kreises der Umfang ist, muss die Funktion nur die Länge der Linie umfang zurueckgeben.
+        /// </summary>
         public double BerechneUmfang()
         {
             return umfang.Laenge;
